@@ -31,6 +31,7 @@ html {
   background: url(../img/bg.jpg);
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -70,138 +71,27 @@ html {
   }
 }
 
-.skill-section {
-  display: grid;
-  place-items: center;
-  padding: 4rem 0;
-  h1{
-      font-size: 4rem;
-      margin-bottom: 5rem;
-  }
-  .skill-bar {
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    background: #fff;
-    padding: 2.5rem 3rem;
-    .bar {
-      margin: 2rem 0;
-      &:first-child {
-        margin-top: 0rem;
-      }
-      .info {
-          margin-bottom: .5rem;
-        span {
-          font-size: 1.7rem;
-          font-weight: 500;
-          opacity: 0;
-          animation: text .5s 1s linear forwards;
-          -webkit-animation: text .5s 1s linear forwards;
-          @keyframes text{
-              100%{
-                  opacity: 1;
-              }
-          }
-}
-      }
-      .progress-line {
-        position: relative;
-        height: 1rem;
-        width: 100%;
-        background: #f0f0f0;
-        box-shadow: inset 0rem 0.1rem 0.1rem rgba(0, 0, 0, 0.05),                        0rem 0.1rem rgba(255, 255, 255, 0.8);
-        border-radius: 1rem;
-        transform: scale(0);
-        transform-origin: left;
-        animation: animateds 1s cubic-bezier(1,0,0.5,1) forwards;
-        @keyframes animateds{
-            100%{
-                transform: scale(1);
-                -webkit-transform: scale(1);
-                -moz-transform: scale(1);
-                -ms-transform: scale(1);
-                -o-transform: scale(1);
-}
-        }
-        span{
-          position: absolute;
-          height: 100%;
-          width: 80%;
-          background: #6665ee;
-          transform: scale(0);
-          transform-origin: left;
-          animation: animated 2s cubic-bezier(1,0,0.5,1) forwards;
-          border-radius: 1rem;
-          -webkit-border-radius: 1rem;
-          -moz-border-radius: 1rem;
-          -ms-border-radius: 1rem;
-          -o-border-radius: 1rem;
-          &:before{
-              position: absolute;
-              content: '';
-              right: 0;
-              top: -1rem;
-              height: 0;
-              width: 0;
-              border: .7rem solid transparent;
-              border-bottom-width: 0rem;
-              border-right-width: 0rem;
-              border-top-color: #000;
-          }
-          &::after{
-              position: absolute;
-              content: '80%';
-              right: 0;
-              top: -3rem;
-              background: #000;
-              color: #fff;
-              padding: .1rem .7rem;
-              font-size: 1.2rem;
-          }
-        }
-      }
-      .html{
-          span{
-              width: 90%;
-              &::after{
-                  content: '90%';
-              }
-          }
-      }
-      .css{
-        span{
-            width: 85%;
-            &::after{
-                content: '85%';
-            }
-        }
+.form{
+    padding: 5rem 9%;
+    display: grid;
+    place-items: center;
+    background: #ddd;
+    h1{
+        font-size: 3.5rem;
+        margin-bottom: 5rem;
     }
-    .js{
-        span{
-            width: 70%;
-            &::after{
-                content: '70%';
-            }
-        }
+    .textArea{
+        width: 60rem;
+        height: 30rem;
+        resize: none;
+        border: .2rem solid rgb(25, 163, 145);
     }
-    .php{
-        span{
-            width: 80%;
-            &::after{
-                content: '80%';
-            }
-        }
+    h2{
+      font-size: 2rem;
+      .count{
+        font-size: 2.5rem;
+        color: red;
+        font-weight: 700;
+      }
     }
-    }
-  }
-}
-
-@keyframes animated {
-    100%{
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-}
 }
