@@ -80,135 +80,136 @@ body{
   }
 }
 
+// Slider
 .slider{
-  position: relative;
-  width: 70%;
-  height: 40rem;
-  margin: 2rem auto;
+  width: 80%;
+  height: 50rem;
+  margin: 9rem auto;
   overflow: hidden;
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
-  @media (max-width: 450px){
-    width: 90%;
-    
-  }
-
+  position: relative;
 
   .slide{
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    clip-path: circle(0.0% at 0 50%);
-    transition: 2s ;
-    -webkit-transition: 2s ;
-    -moz-transition: 2s ;
-    -ms-transition: 2s ;
-    -o-transition: 2s ;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 2s;
+    clip-path: circle(0.4% at 0 50%);
     img{
       position: absolute;
+      border-radius: 5rem;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
     .info{
+      width: 80%;
+      z-index: 1;
       position: absolute;
-      color: #222;
-      background: rgba(255, 255, 255, 0.3);
-      width: 72%;
-      margin-top: 5rem;
-      margin-left: 5rem;
+      padding: 3rem;
+      margin: 0 15rem;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
       border-radius: .5rem;
       -webkit-border-radius: .5rem;
       -moz-border-radius: .5rem;
       -ms-border-radius: .5rem;
       -o-border-radius: .5rem;
-      padding: 2rem;
-      box-shadow: 0 .5rem 2.5rem rgba(0,0,0,0.5);
-      @media(max-width: 768px){
-        width: 90%;
-      }
-      @media(max-width: 450px){
-        width: 100%;
-        margin-top: auto;
-      margin-left: auto;
-      }
-      h2{
-        font-size: 2rem;
+      border: .1rem solid #ddd;
+      h1{
+        font-size: 3.5rem;
         font-weight: 800;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
       }
       p{
-        font-size: 1.5rem;
-        font-weight: 500;
-        color: #222;
+        font-size: 1.8rem;
       }
-}
+      
+    }
+    &:hover{
+      .prev-icon, .next-icon{
+        opacity: 1;
+      }
+      
+    }
   }
-  .navigation{    
-    display: flex;
-    height: 40rem;
+  .navigatorIcons{
+    position: absolute;
     align-items: center;
     justify-content: space-between;
-    opacity: 0;
-    .prev-btn, .next-btn{
-      z-index: 999;
-      font-size: 2rem;
-      color: #222;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 1rem;
-      cursor: pointer;
-    }
-    .prev-btn{
-      border-top-right-radius: .3rem;
-      border-bottom-right-radius: .3rem;
-    }
-    .next-btn{
-      border-top-left-radius: .3rem;
-      border-bottom-left-radius: .3rem;
-    }    
-  }
-  &:hover{
-    .navigation{
-      opacity: 1;
-    }
-  }
-  .slideIcon{
-    position: absolute;
+    display: flex;
     z-index: 999;
+    font-size: 2.5rem;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    .prev-icon, .next-icon{
+      cursor: pointer;
+      background: #fff;
+      padding:.5rem 1rem; 
+      opacity: 100;
+      
+    }
+    .prev-icon{
+      border-radius: 0 .5rem .5rem 0;
+      -webkit-border-radius: 0 .5rem .5rem 0;
+      -moz-border-radius: 0 .5rem .5rem 0;
+      -ms-border-radius: 0 .5rem .5rem 0;
+      -o-border-radius: 0 .5rem .5rem 0;
+}
+.next-icon{
+  border-radius: .5rem 0 0 .5rem;
+  -webkit-border-radius: .5rem 0 0 .5rem;
+  -moz-border-radius: .5rem 0 0 .5rem;
+  -ms-border-radius: .5rem 0 0 .5rem;
+  -o-border-radius: .5rem 0 0 .5rem;
+}
+  }
+  .slide-icons{
+    position: absolute;
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
     display: flex;
+    z-index: 999;
     .icon{
       background: #fff;
-      width: 3rem;
-      height: .4rem;
-      margin-left: 2rem;
-      box-shadow: 0 .3rem .5rem rgba(0,0,0,0.5);
-      border-radius: 1rem;
-      -webkit-border-radius: 1rem;
-      -moz-border-radius: 1rem;
-      -ms-border-radius: 1rem;
-      -o-border-radius: 1rem;
-      transform: all 0.3s ease;
-      -webkit-transform: all 0.3s ease;
-      -moz-transform: all 0.3s ease;
-      -ms-transform: all 0.3s ease;
-      -o-transform: all 0.3s ease;
+      width: 3.5rem;
+      height: .5rem;
+      margin-left: .5rem;
+      border-radius: 5rem;
+      -webkit-border-radius: 5rem;
+      -moz-border-radius: 5rem;
+      -ms-border-radius: 5rem;
+      -o-border-radius: 5rem;
+      &:last-child{
+        margin: none;
+      }
 }
 .active{
-  background: #FF5733;
+  background-color: brown;
+}
 }
 
-  }
   .active{
-    clip-path: circle(150% at 0 50%);
+    clip-path: circle(150% at 0 45%);
     z-index: 1;
   }
-  
-}
+  &:hover{
+    .navigatorIcons{
+      opacity: 1;
+    }
+  }
 
+}
 

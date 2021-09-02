@@ -1,43 +1,46 @@
-const nextBtn = document.querySelector('.next-btn')
-const prevBtn = document.querySelector('.prev-btn')
+const prevIcon = document.querySelector('.prev-icon')
+const nextIcon = document.querySelector('.next-icon')
 const slides = document.querySelectorAll('.slide')
-const slidesIcon = document.querySelectorAll('.icon')
+const slideIcon = document.querySelectorAll('.icon')
+const slideLength = slides.length
+let i = 0
 
-const numberOfSlides = slides.length;
-var slideNumber = 0;
+nextIcon.addEventListener('click', nextSlider)
+setInterval(nextSlider, 5000)
 
-// Image Slider Next Button
-nextBtn.addEventListener('click', slideFunc)
-function slideFunc () {
+function nextSlider(){
    slides.forEach((slide) => {
       slide.classList.remove('active')
    })
-   slidesIcon.forEach((icons) => {
-      icons.classList.remove('active')
+   slideIcon.forEach((icon) => {
+      icon.classList.remove('active')     
    })
-   slideNumber++
-   if(slideNumber > numberOfSlides -1){
-      slideNumber = 0;
-   }
-   slides[slideNumber].classList.add('active')
-   slidesIcon[slideNumber].classList.add('active')
+   i++
+   if(i > slideLength - 1){
+      i = 0
+   }  
+   slides[i].classList.add('active')
+   slideIcon[i].classList.add('active')
 }
 
-// Images Slider Prev Button
-prevBtn.addEventListener('click', () => {
-   slideNumber--
+prevIcon.addEventListener('click', prevSlider)
+
+function prevSlider(){ 
+   i-- 
    slides.forEach((slide) => {
       slide.classList.remove('active')
    })
-   slidesIcon.forEach((icons) => {
-      icons.classList.remove('active')
+   slideIcon.forEach((icon) => {
+      icon.classList.remove('active')
    })
-   if(slideNumber < 0){
-      slideNumber = numberOfSlides - 1
-   }      
-   slides[slideNumber].classList.add('active')
-   slidesIcon[slideNumber].classList.add('active')
-})
+   
+   if(i < 0){
+      i = slideLength - 1
+   } 
+  slides[i].classList.add('active')
+  slideIcon[i].classList.add('active')
+}
 
-// Slider Infinite
-setInterval(slideFunc, 5000)
+
+
+
