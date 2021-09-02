@@ -41,221 +41,111 @@ body {
   height: 1000vh;
 }
 
-.hero {
-  height: 100vh;
-  width: 100%;
-  background: url(../img/bg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
+.img-slider {
   position: relative;
-  z-index: 1;
+  width: 90%;
+  height: 50rem;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 5rem;
+  margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .hero {
-    height: 80vh;
-  }
-}
-
-.hero::before {
+.img-slider .slide {
   position: absolute;
   top: 0;
   left: 0;
-  content: "";
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  -webkit-clip-path: circle(0% at 0 50%);
+          clip-path: circle(0% at 0 50%);
+  -webkit-transition: 2s;
+  transition: 2s;
+  -webkit-transition-property: -webkit-clip-path;
+  transition-property: -webkit-clip-path;
+  transition-property: clip-path;
+  transition-property: clip-path, -webkit-clip-path;
   z-index: -1;
 }
 
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.hero button {
-  padding: 1rem 3rem;
-  background: black;
-  color: #fff;
-  font-size: 1.8rem;
-  display: inline-block;
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-.slider {
-  width: 80%;
-  height: 50rem;
-  margin: 9rem auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.slider .slide {
+.img-slider .slide img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: 2s;
-  transition: 2s;
-  -webkit-clip-path: circle(0.4% at 0 50%);
-          clip-path: circle(0.4% at 0 50%);
 }
 
-.slider .slide img {
+.img-slider .slide .info {
   position: absolute;
-  border-radius: 5rem;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  z-index: 999;
+  top: 2%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, 0%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 
-.slider .slide .info {
-  width: 80%;
-  z-index: 1;
-  position: absolute;
-  padding: 3rem;
-  margin: 0 15rem;
-  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+.img-slider .slide .info h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.img-slider .slide .info p {
+  font-size: 1.5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: .5rem;
   -webkit-border-radius: .5rem;
   -moz-border-radius: .5rem;
   -ms-border-radius: .5rem;
   -o-border-radius: .5rem;
-  border: .1rem solid #ddd;
 }
 
-.slider .slide .info h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
+.img-slider .active {
+  -webkit-clip-path: circle(150% at 0 50%);
+          clip-path: circle(150% at 0 50%);
+  z-index: 1;
 }
 
-.slider .slide .info p {
-  font-size: 1.8rem;
-}
-
-.slider .slide:hover .prev-icon, .slider .slide:hover .next-icon {
-  opacity: 1;
-}
-
-.slider .navigatorIcons {
-  position: absolute;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  z-index: 999;
-  font-size: 2.5rem;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-
-.slider .navigatorIcons .prev-icon, .slider .navigatorIcons .next-icon {
-  cursor: pointer;
-  background: #fff;
-  padding: .5rem 1rem;
-  opacity: 100;
-}
-
-.slider .navigatorIcons .prev-icon {
-  border-radius: 0 .5rem .5rem 0;
-  -webkit-border-radius: 0 .5rem .5rem 0;
-  -moz-border-radius: 0 .5rem .5rem 0;
-  -ms-border-radius: 0 .5rem .5rem 0;
-  -o-border-radius: 0 .5rem .5rem 0;
-}
-
-.slider .navigatorIcons .next-icon {
-  border-radius: .5rem 0 0 .5rem;
-  -webkit-border-radius: .5rem 0 0 .5rem;
-  -moz-border-radius: .5rem 0 0 .5rem;
-  -ms-border-radius: .5rem 0 0 .5rem;
-  -o-border-radius: .5rem 0 0 .5rem;
-}
-
-.slider .slide-icons {
+.img-slider .bulet {
   position: absolute;
   bottom: 5%;
   left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   z-index: 999;
 }
 
-.slider .slide-icons .icon {
+.img-slider .bulet .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: .2rem solid #fff;
+  z-index: 999;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.img-slider .bulet .active {
   background: #fff;
-  width: 3.5rem;
-  height: .5rem;
-  margin-left: .5rem;
-  border-radius: 5rem;
-  -webkit-border-radius: 5rem;
-  -moz-border-radius: 5rem;
-  -ms-border-radius: 5rem;
-  -o-border-radius: 5rem;
-}
-
-.slider .slide-icons .icon:last-child {
-  margin: none;
-}
-
-.slider .slide-icons .active {
-  background-color: brown;
-}
-
-.slider .active {
-  -webkit-clip-path: circle(150% at 0 45%);
-          clip-path: circle(150% at 0 45%);
-  z-index: 1;
-}
-
-.slider:hover .navigatorIcons {
-  opacity: 1;
+  -webkit-box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.5);
 }
 /*# sourceMappingURL=style.css.map */
